@@ -1,0 +1,137 @@
+{% include "custom_admin/sidebar.html" %}
+
+<div class="p-4 sm:ml-64 mt-20">
+    <div class="p-4 border-2 border-purple-200 border-dashed rounded-lg">
+        <section class="bg-white">
+            <div class="py-8 px-4 mx-auto max-w-2xl lg:py-12">
+
+
+                <!-- success message -->
+                {% if messages %}
+                <div>
+                    {% for message in messages %}
+                    <div id="success_alert" class="flex items-center p-4 mb-4 text-green-400 rounded-lg bg-green-50"
+                        role="alert">
+                        <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                        </svg>
+                        <span class="sr-only">Info</span>
+                        <div class="ms-3 text-sm font-medium">
+                            {{ message }}
+                        </div>
+                        <button type="button"
+                            class="ms-auto -mx-1.5 -my-1.5 bg-green-50 text-green-500 rounded-lg p-1.5 hover:bg-green-200 inline-flex items-center justify-center h-8 w-8"
+                            onclick="remove_alert()">
+                            <span class="sr-only">Close</span>
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 14 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                            </svg>
+                        </button>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <!-- success message end -->
+
+
+                <h2 class="mb-4 text-xl font-bold text-gray-900">Add a new Paper</h2>
+
+                <form method="post" enctype="multipart/form-data">
+
+                    {% csrf_token %}
+
+                    <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+                        <div class="sm:col-span-2">
+                            <label for="paper_name" class="block mb-2 text-sm font-medium text-gray-900">Paper Name</label>
+                            <input type="text" name="paper_name" id="paper_name"
+                                class="border border-purple-300 text-gray-900 outline-none text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                placeholder="Ex. DBMS-(2024)">
+
+                            <!-- input field validation error -->
+                            {% if form.paper_name.errors %}
+                            <div class="text-red-600 text-sm">{{ form.paper_name.errors }}</div>
+                            {% endif %}
+
+                        </div>
+
+                        <div>
+                            <label for="branch" class="block mb-2 text-sm font-medium text-gray-900">Branch</label>
+                            <select id="branch" name="branch"
+                                class="border border-purple-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 outline-none">
+                                <option selected>Select Branch</option>
+                                <option Value="Computer Science">Computer Science</option>
+                                <option Value="Civil">Civil</option>
+                                <option Value="Mechanical">Mechanical</option>
+                                <option Value="Electronics & Telicommunication">Electronics & Telicommunication</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="year" class="block mb-2 text-sm font-medium text-gray-900">Year</label>
+                            <select id="year" name="year"
+                                class="border border-purple-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 outline-none">
+                                <option selected>Select Year</option>
+                                <option Value="First Year">First Year</option>
+                                <option Value="Second Year">Second Year</option>
+                                <option Value="Third Year">Third Year</option>
+                                <option Value="Last Year">Last Year</option>
+                            </select>
+                        </div>
+
+                        <div class="sm:col-span-2">
+                            <input type="file" name="pdf" id="pdf" class="hidden" onchange="displayFileName()">
+                            <label for="pdf"
+                                class="bg-purple-500 text-white font-bold py-2 px-4 rounded cursor-pointer">
+                                Upload File
+                            </label>
+
+                            <span id="file-name" class="ml-4 text-purple-400">No file chosen</span>
+
+                            <!-- validation error message -->
+                            {% if form.pdf.errors %}
+                            <div class="text-red-600 text-sm mt-2">{{ form.pdf.errors }}</div>
+                            {% endif %}
+
+                        </div>
+
+                        <div class="sm:col-span-2 flex justify-center mt-4">
+                            <input type="submit"
+                                class="bg-purple-500 text-white font-bold py-2 px-4 rounded cursor-pointer">
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <script>
+
+        // form validation
+
+        function remove_alert() {
+            var alertElement = document.getElementById('success_alert');
+            if (alertElement) {
+                alertElement.style.display = 'none';
+            }
+        }
+
+        function displayFileName() {
+            var fileInput = document.getElementById('pdf');
+            var fileName = fileInput.files[0] ? fileInput.files[0].name : 'No file chosen';
+            document.getElementById('file-name').textContent = fileName;
+        }
+
+        document.getElementById('papers').addEventListener('change', function () {
+            const label = document.querySelector('label[for="papers"]');
+            const fileName = this.files[0] ? this.files[0].name : 'Choose File';
+            label.textContent = fileName;
+        });
+
+    </script>
+
+    {% include "custom_admin/dash_footer.html" %}

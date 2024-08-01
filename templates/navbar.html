@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="{% static 'media/logo.png' %}" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>CampusQuest</title>
+  <!-- bootstrap icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+
+  <!-- verbose approach that computes the URLs separately for use in if condition -->
+  {% url 'papers' as papers_url %}
+  {% url 'home' as home_url %}
+  {% url 'contribute' as contribute_url %}
+
+  <!-- Navbar start here -->
+  <header class="text-gray-600 bg-white body-font shadow-sm fixed top-0 left-0 right-0">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="flex title-font font-bold items-center text-gray-900 mb-4 md:mb-0">
+        <img src="{% static 'media/logo.png' %}" alt="logo" class="w-10">
+        <span class="ml-3 text-xl text-purple-600">CampusQuest</span>
+      </a>
+      <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+
+        <a href="{{ home_url }}"
+          class="mr-5 font-normal cursor-pointer {% if request.path == home_url %}text-purple-600 border-purple-400 border-b-2{% else %}text-black hover:text-purple-600{% endif %}">Home</a>
+
+        <a href="#" class="mr-5 text-black font-normal hover:text-purple-600 cursor-pointer">About</a>
+
+        <a href="#" class="mr-5 text-black font-normal hover:text-purple-600 cursor-pointer">Services</a>
+
+        <a href="{% url 'contribute' %}" class="mr-5 mt-4 md:mt-0 font-normal cursor-pointer {% if request.path == contribute_url %}text-purple-600 border-purple-400 border-b-2{% else %}text-black hover:text-purple-600{% endif %}">Contribute</a>
+
+      </nav>
+
+      <a href="{{ papers_url }}"
+        class="mr-5 mt-4 md:mt-0 font-normal cursor-pointer {% if request.path == papers_url %}text-purple-600 border-purple-400 border-b-2{% else %}text-black hover:text-purple-600{% endif %}">Get
+        Papers</a>
+
+    </div>
+  </header>
+
+  <!-- Navbar end here -->

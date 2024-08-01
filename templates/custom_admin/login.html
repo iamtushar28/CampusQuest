@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+  <title>CampusQuest | Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1315' height='563' preserveAspectRatio='none' viewBox='0 0 1315 563'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1381%26quot%3b)' fill='none'%3e%3cpath d='M1315.187%2c357.981C1349.784%2c356.769%2c1384.42%2c347.741%2c1403.975%2c319.175C1426.357%2c286.479%2c1436.74%2c243.486%2c1417.138%2c209.051C1397.38%2c174.343%2c1355.123%2c162.791%2c1315.187%2c163.201C1276.093%2c163.603%2c1237.321%2c177.832%2c1216.801%2c211.11C1195.292%2c245.992%2c1192.118%2c291.752%2c1214.925%2c325.799C1235.862%2c357.054%2c1277.59%2c359.298%2c1315.187%2c357.981' fill='rgba(216%2c 180%2c 254%2c 1)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M141.217%2c581.155C192.848%2c580.692%2c241.374%2c552.803%2c265.291%2c507.043C287.707%2c464.155%2c277.065%2c412.748%2c250.316%2c372.42C226.412%2c336.381%2c184.455%2c319.136%2c141.217%2c319.984C99.575%2c320.801%2c62.613%2c342.054%2c39.286%2c376.559C12.217%2c416.598%2c-8.326%2c466.044%2c13.226%2c509.304C36.61%2c556.241%2c88.78%2c581.625%2c141.217%2c581.155' fill='rgba(216%2c 180%2c 254%2c 1)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M172.15198426247173 173.35571859198922L291.79917665088175 160.78029193432013 279.22374999321266 41.13309954591011 159.57655760480264 53.7085262035792z' fill='rgba(216%2c 180%2c 254%2c 1)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M1105.88200504944 181.11465134753675L1153.9632319419572 86.74993033070572 1059.5985109251262 38.6687034381886 1011.517284032609 133.03342445501963z' fill='rgba(216%2c 180%2c 254%2c 1)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M0.708%2c158.699C26.218%2c158.869%2c49.665%2c144.687%2c62.26%2c122.502C74.698%2c100.592%2c73.861%2c73.82%2c61.288%2c51.988C48.69%2c30.113%2c25.95%2c15.862%2c0.708%2c15.622C-24.951%2c15.378%2c-49.245%2c28.494%2c-61.903%2c50.815C-74.402%2c72.855%2c-72.162%2c99.779%2c-59.444%2c121.693C-46.779%2c143.515%2c-24.522%2c158.531%2c0.708%2c158.699' fill='rgba(216%2c 180%2c 254%2c 1)' class='triangle-float2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1381'%3e%3crect width='1315' height='563' fill='white'%3e%3c/rect%3e%3c/mask%3e%3cstyle%3e %40keyframes float1 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-10px%2c 0)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float1 %7b animation: float1 5s infinite%3b %7d %40keyframes float2 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-5px%2c -5px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float2 %7b animation: float2 4s infinite%3b %7d %40keyframes float3 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(0%2c -10px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float3 %7b animation: float3 6s infinite%3b %7d %3c/style%3e%3c/defs%3e%3c/svg%3e");
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="py-6 sm:py-8 lg:py-12 mt-20">
+    <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+      <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl"> <span
+          class="text-purple-600">CampusQuest</span> | Login</h2>
+
+      <form class="mx-auto max-w-lg rounded-lg border" method="post">
+
+        {% csrf_token %}
+
+        <div class="flex flex-col gap-4 p-4 md:p-8">
+          <div>
+            <label for="username" class="mb-2 inline-block text-sm text-gray-800 sm:text-base">Username</label>
+            <input type="text" id="username" name="username"
+              class="w-full rounded border bg-purple-50 px-3 py-2 text-gray-800 outline-none ring-purple-300 transition duration-100 focus:ring" />
+          </div>
+
+          <div>
+            <label for="password" class="mb-2 inline-block text-sm text-gray-800 sm:text-base">Password</label>
+            <input name="password" id="password"
+              class="w-full rounded border bg-purple-50 px-3 py-2 text-gray-800 outline-none ring-purple-300 transition duration-100 focus:ring" />
+          </div>
+
+          <button
+            class="block rounded-lg bg-purple-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-purple-300 transition duration-100 hover:bg-purple-600 focus-visible:ring active:bg-purple-600 md:text-base">Log
+            in</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</body>
+
+</html>
