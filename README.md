@@ -45,6 +45,3 @@ CampusQuest is a full-stack web application designed to provide students with ea
 
 For any questions or suggestions, please contact iamtushar28@outlook.com.
 
----
-
-Feel free to customize any sections as per your specific project details and requirements.
