@@ -1,5 +1,5 @@
 
-# CampusQuest - Previous Year Question Papers Repository
+# CampusQuest - Previous Year Question Papers Web Application
 
 ## Description
 
