@@ -28,12 +28,14 @@ CampusQuest is a full-stack web application designed to provide students with ea
 
 ### Admin
 
-1. Log in to the admin dashboard using your credentials.
-2. Upload new question papers by navigating to the 'Upload Paper' section.
-3. Manage existing question papers, including editing and deleting entries.
+1. Open url (http://127.0.0.1:8000/admin/login)
+2. Log in to the admin dashboard using your credentials.
+3. Upload new question papers by navigating to the 'Upload Paper' section.
+4. Manage existing question papers, including editing and deleting entries.
 
 ### User
 
+1. Open url (http://127.0.0.1:8000)
 1. Navigate to the 'Get Paper' page.
 2. Use the filters to select your branch and year.
 3. Browse and download the available question papers.
