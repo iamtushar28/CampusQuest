@@ -1,18 +1,18 @@
 
 # CampusQuest - Previous Year Question Papers Web Application
 
-## Description
+## 📋Description
 
 CampusQuest is a full-stack web application designed to provide students with easy access to a comprehensive repository of previous year question papers. Built with a modern tech stack including HTML, CSS, Tailwind, AJAX, jQuery, and Python Django, CampusQuest ensures a seamless and efficient user experience.
 
-## Features
+## 🚀Features
 
 - **Custom Admin Dashboard:** A secure and intuitive dashboard for admins to upload and manage question papers.
 - **User-Friendly Access:** Users can effortlessly browse and download question papers from the 'Get Paper' page.
 - **Advanced Filtering:** Dynamic filtering options for branch and year using jQuery and AJAX, enabling users to quickly find relevant papers.
 - **Responsive Design:** Optimized for various devices to provide a consistent user experience.
 
-## Technologies Used
+## 👨🏻‍💻Technologies Used
 
 - **Frontend:**
   - HTML
@@ -24,7 +24,7 @@ CampusQuest is a full-stack web application designed to provide students with ea
   - Python Django
 
 
-## Usage
+## 🎯Usage
 
 ### Admin
 
@@ -43,5 +43,5 @@ CampusQuest is a full-stack web application designed to provide students with ea
 
 ## Contact
 
-For any questions or suggestions, please contact iamtushar28@outlook.com.
+For any questions or suggestions, please contact iamtushar2830@gmail.com.
 
